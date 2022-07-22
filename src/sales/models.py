@@ -41,7 +41,7 @@ class Sale(models.Model):
         return super().save(*args, **kwargs)
     
     def get_positions(self):
-        return sef.positions.all()
+        return self.positions.all()
     
 
 class CSV(models.Model):
