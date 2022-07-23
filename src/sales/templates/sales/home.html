@@ -11,6 +11,26 @@ home
 {% endblock title %}
 
 {% block content %}
+<div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 <form action="" method="POST">
     {% csrf_token %}
@@ -32,8 +52,11 @@ grouped by df
 {{df|safe}}
 <br>
 Chart
-<img src="data:image/png;base64, {{chart|safe}}">
+<img src="data:image/png;base64, {{chart|safe}}" id='img'>
+
 {% else %}
     <h3>no data</h3>
 {% endif %}
+
+<button class="btn btn-primary invisible"  id="report-btn" data-bs-toggle="modal" data-bs-target="#reportModal">add report</button>
 {% endblock content %}
